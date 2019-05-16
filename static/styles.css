@@ -1,0 +1,133 @@
+div.container {
+  border-width: 1px 10px 10px 10px;
+  border-style: solid;
+  border-color: #ed1e24;
+  background: #d9d9d9;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+header {
+  background-color: #ed1e24;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.three-leds {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.led-green {
+  width: 24px;
+  height: 24px;
+  background-color: #abff00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px,
+    #89ff00 0 2px 12px;
+}
+
+.led-red {
+  width: 24px;
+  height: 24px;
+  background-color: #f00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px,
+    rgba(255, 0, 0, 0.5) 0 2px 12px;
+}
+
+.led-yellow {
+  width: 24px;
+  height: 24px;
+  background-color: #ff0;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px,
+    #ff0 0 2px 12px;
+}
+
+.led-blue {
+  width: 48px;
+  height: 48px;
+  background-color: #24e0ff;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px,
+    #3f8cff 0 2px 14px;
+}
+
+.pokemons {
+  display: grid;
+  grid-gap: 15px;
+  padding: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+a.pokemon-card {
+  text-decoration: none;
+  cursor: pointer;
+  background: white;
+  color: #000000;
+}
+
+.pokemon-card img {
+  width: 100%;
+  background-color: #eee;
+}
+
+.pokemon-data {
+  padding: 5px;
+}
+
+.pokemon-number {
+  margin: 0;
+  color: #5c5a61;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.pokemon-name {
+  margin: 0 0 5px 0;
+  padding: 5px;
+}
+
+.pokemon-type {
+  display: inline-block;
+  padding: 5px;
+  color: black;
+  border-radius: 10%;
+  margin-left: 3px;
+}
+
+.pokemon-type-poison {
+  background-color: purple;
+  color: white;
+}
+
+.pokemon-type-grass {
+  background-color: green;
+  color: white;
+}
+
+.pokemon-type-fire {
+  background-color: orange;
+  color: white;
+}
+
+.pokemon-type-water {
+  background-color: lightskyblue;
+  color: white;
+}
+
+.pokemon-type-bug {
+  background-color: greenyellow;
+}
+
+.pokemon-type-flying {
+  background-color: lightgray;
+}
+
+.pokemon-type-normal {
+  background-color: lightgoldenrodyellow;
+}
