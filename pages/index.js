@@ -37,32 +37,10 @@ export default class extends React.Component {
     }
   }
 
-  componentDidMount() {
-    ReactDOM.findDOMNode(this.refs.scrollable).addEventListener(
-      "scroll",
-      this.handleScroll,
-      false
-    );
-  }
-
-  componentWillUnmount() {
-    ReactDOM.findDOMNode(this.refs.scrollable).removeEventListener(
-      "scroll",
-      this.handleScroll,
-      false
-    );
-  }
-
-  handleScroll = () => {
+  loadMore = () => {
     const { loading, next } = this.state;
-    const node = ReactDOM.findDOMNode(this.refs.scrollable);
 
-    if (
-      node.scrollTop + node.offsetHeight + 20 >= node.scrollHeight &&
-      !loading &&
-      next
-    ) {
-      console.log("dsasdasda");
+    if (!loading && next) {
       this.setState({ loading: true }, () => {
         this.updatePokemons();
       });
@@ -103,10 +81,22 @@ export default class extends React.Component {
             <PokemonCard pokemon={pokemon} key={pokemon.id} />
           ))}
         </div>
-        {loading && <h3 className="loading">Loading...</h3>}
+        <div style={{ textAlign: "center" }}>
+          <button className="load-more" onClick={this.loadMore}>
+            {loading ? "...loading" : "Load More"}
+          </button>
+        </div>
         <style jsx>{`
-          .loading {
-            text-align: center;
+          .load-more {
+            background-color: #47cf73;
+            color: black;
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 800;
+            margin: 10px auto;
+            padding: 8px;
+            border-radius: 4px;
+            border: 3px solid transparent;
           }
         `}</style>
       </Layout>

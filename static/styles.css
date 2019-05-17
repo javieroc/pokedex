@@ -5,7 +5,7 @@ div.container {
   background: #d9d9d9;
   height: 100vh;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 header {
@@ -62,9 +62,6 @@ header {
   grid-gap: 15px;
   padding: 15px;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  height: 95%;
-  box-sizing: border-box;
-  overflow-y: scroll;
 }
 
 a.pokemon-card {
