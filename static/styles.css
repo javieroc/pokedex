@@ -5,7 +5,7 @@ div.container {
   background: #d9d9d9;
   height: 100vh;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 header {
@@ -62,6 +62,9 @@ header {
   grid-gap: 15px;
   padding: 15px;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  height: 95%;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 a.pokemon-card {
@@ -110,7 +113,8 @@ a.pokemon-card {
   color: white;
 }
 
-.pokemon-type-fire {
+.pokemon-type-fire,
+.pokemon-type-dragon {
   background-color: orange;
   color: white;
 }
@@ -130,4 +134,44 @@ a.pokemon-card {
 
 .pokemon-type-normal {
   background-color: lightgoldenrodyellow;
+}
+
+.pokemon-type-electric {
+  background-color: yellow;
+}
+
+.pokemon-type-ground {
+  background-color: brown;
+  color: white;
+}
+
+.pokemon-type-fairy {
+  background-color: pink;
+}
+
+.pokemon-type-fighting {
+  background-color: salmon;
+}
+
+.pokemon-type-psychic,
+.pokemon-type-dark {
+  background-color: black;
+  color: white;
+}
+
+.pokemon-type-rock {
+  background-color: gray;
+}
+
+.pokemon-type-steel {
+  background-color: gainsboro;
+}
+
+.pokemon-type-ghost {
+  background-color: indigo;
+  color: white;
+}
+
+.pokemon-type-ice {
+  background-color: whitesmoke;
 }
