@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import Error from "next/error";
 import { fetchData } from "../services/api";
 import Layout from "../components/Layout";
