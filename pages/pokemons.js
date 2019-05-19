@@ -30,14 +30,15 @@ export default class extends React.Component {
         statusCode: 200
       };
     } catch (e) {
-      res.statusCode = 503;
+      if (res) {
+        res.statusCode = 503;
+      }
       return { pokemon: null, statusCode: 503 };
     }
   }
 
   render() {
     const { pokemon, statusCode } = this.props;
-    console.log("pokemon", pokemon);
 
     if (statusCode !== 200) {
       return <Error statusCode={statusCode} />;

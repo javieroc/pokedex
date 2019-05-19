@@ -31,7 +31,9 @@ export default class extends React.Component {
 
       return { pokemons, ...others, statusCode: 200 };
     } catch (e) {
-      res.statusCode = 503;
+      if (res) {
+        res.statusCode = 503;
+      }
       return { pokemons: null, statusCode: 503 };
     }
   }
