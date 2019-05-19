@@ -34,7 +34,7 @@ export default class Layout extends React.Component {
           html {
             margin: 0;
             font-family: system-ui;
-            background: white;
+            background: transparent;
           }
         `}</style>
       </div>
