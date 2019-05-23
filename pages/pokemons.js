@@ -1,26 +1,27 @@
 import Error from "next/error";
+import Link from "next/link";
 import { fetchData } from "../services/api";
 import Layout from "../components/Layout";
 
 export default class extends React.Component {
   static async getInitialProps({ query, res }) {
-    const { name } = query;
+    const { id: pokeId } = query;
 
     try {
       const {
         id,
-        name: pokeName,
+        name,
         height,
         weight,
         types,
         sprites: { front_default: img },
         abilities
-      } = await fetchData(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      } = await fetchData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`);
 
       return {
         pokemon: {
           id,
-          name: pokeName,
+          name,
           height,
           weight,
           types: types.map(t => t.type.name),
@@ -38,7 +39,10 @@ export default class extends React.Component {
   }
 
   render() {
-    const { pokemon, statusCode } = this.props;
+    const {
+      pokemon: { id, img, name, height, weight, types, abilities },
+      statusCode
+    } = this.props;
 
     if (statusCode !== 200) {
       return <Error statusCode={statusCode} />;
@@ -48,93 +52,43 @@ export default class extends React.Component {
       <Layout title="Pokedex">
         <div className="pokemon-detail">
           <div className="pokemon-box">
-            <img src={pokemon.img} />
+            <img src={img} />
+            <div className="pokemon-info">
+              <h5>{name}</h5>
+              <h5>{`N° ${"0".repeat(3 - id.toString().length)}${id}`}</h5>
+              <h5>{`Height: ${height}`}</h5>
+              <h5>{`Weight: ${weight}`}</h5>
+              <h5>{`Type: ${types.join(", ")}`}</h5>
+              <h5>{`Abilities: ${abilities.join(", ")}`}</h5>
+            </div>
           </div>
           <div className="pokemon-buttons">
             <button>Info</button>
             <div className="cross-center">
-              <div className="cross-top" />
-              <div className="cross-bottom" />
-              <div className="cross-left" />
-              <div className="cross-right" />
+              <Link href={`/pokemons?id=${id + 1}`}>
+                <a>
+                  <div className="cross-top" />
+                </a>
+              </Link>
+              <Link href={`/pokemons?id=${id === 1 ? id : id - 1}`}>
+                <a>
+                  <div className="cross-bottom" />
+                </a>
+              </Link>
+              <Link href={`/pokemons?id=${id === 1 ? id : id - 1}`}>
+                <a>
+                  <div className="cross-left" />
+                </a>
+              </Link>
+              <Link href={`/pokemons?id=${id + 1}`}>
+                <a>
+                  <div className="cross-right" />
+                </a>
+              </Link>
               <div className="cross-circle" />
             </div>
           </div>
-          <style jsx>{`
-            .pokemon-detail {
-              padding: 20px 30px;
-              box-sizing: border-box;
-            }
-            .pokemon-box {
-              background-color: black;
-              border-width: 30px;
-              border-style: solid;
-              border-color: grey;
-              border-radius: 10px;
-              margin-bottom: 50px;
-            }
-            .pokemon-buttons {
-              display: flex;
-              justify-content: space-around;
-            }
-            .pokemon-buttons button {
-              background-color: yellow;
-              color: black;
-              display: inline-block;
-              font-size: 1rem;
-              font-weight: 900;
-              padding: 8px 12px;
-              border-radius: 4px;
-              border: 3px solid transparent;
-            }
-            .cross-center {
-              background-color: #333333;
-              width: 35px;
-              height: 35px;
-              position: relative;
-            }
-            .cross-circle {
-              background-color: #292929;
-              width: 25px;
-              height: 25px;
-              position: absolute;
-              border-radius: 100%;
-              margin-top: 5px;
-              margin-left: 5px;
-            }
-            .cross-top {
-              background-color: #333333;
-              width: 35px;
-              height: 35px;
-              position: absolute;
-              border-radius: 15%;
-              margin-top: -30px;
-            }
-            .cross-bottom {
-              background-color: #333333;
-              width: 35px;
-              height: 35px;
-              position: absolute;
-              border-radius: 15%;
-              margin-top: 30px;
-            }
-            .cross-left {
-              background-color: #333333;
-              width: 35px;
-              height: 35px;
-              position: absolute;
-              border-radius: 15%;
-              margin-left: -30px;
-            }
-            .cross-right {
-              background-color: #333333;
-              width: 35px;
-              height: 35px;
-              position: absolute;
-              border-radius: 15%;
-              margin-left: 30px;
-            }
-          `}</style>
+          <style jsx>{``}</style>
         </div>
       </Layout>
     );

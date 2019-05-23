@@ -5,7 +5,7 @@ export default class PokemonCard extends React.Component {
     const { id, name, img, types } = this.props.pokemon;
 
     return (
-      <Link href={`/pokemons?name=${name}`}>
+      <Link href={`/pokemons?id=${id}`}>
         <a className="pokemon-card">
           <img src={img} />
           <div className="pokemon-data">
