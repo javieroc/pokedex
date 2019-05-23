@@ -62,9 +62,8 @@ export default class extends React.Component {
           </div>
           <style jsx>{`
             .pokemon-detail {
-              background-color: #ed1e24;
               padding: 20px 30px;
-              height: 100%;
+              box-sizing: border-box;
             }
             .pokemon-box {
               background-color: black;
