@@ -14,7 +14,11 @@ export default class Layout extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
           <link rel="stylesheet" href="static/styles.css" />
-          <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet' />
+          <link
+            href="https://fonts.googleapis.com/css?family=Press Start 2P"
+            rel="stylesheet"
+          />
+          <script src="static/talkify.js" />
         </Head>
 
         <div className="container">
@@ -34,7 +38,7 @@ export default class Layout extends React.Component {
           body,
           html {
             margin: 0;
-            font-family: 'Press Start 2P', system-ui;
+            font-family: "Press Start 2P", system-ui;
             font-size: 10px;
             background: transparent;
           }

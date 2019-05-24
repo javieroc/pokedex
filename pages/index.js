@@ -92,7 +92,7 @@ export default class extends React.Component {
             background-color: #47cf73;
             color: black;
             display: inline-block;
-            font-family: 'Press Start 2P', system-ui;
+            font-family: "Press Start 2P", system-ui;
             font-size: 10px;
             margin: 10px auto;
             padding: 8px;
