@@ -1,4 +1,4 @@
-# Testing NextJs
+# Pokedex app
 
 Simple app that emulate a pokedex https://pokedex-ioheqeevur.now.sh/
 
